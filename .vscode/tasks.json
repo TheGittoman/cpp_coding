@@ -10,7 +10,7 @@
                 "${file}",
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
             ],
             "options": {
                 "cwd": "C:/MinGW/mingw32/bin"
