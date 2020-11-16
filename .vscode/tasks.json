@@ -11,6 +11,16 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-I"
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\include",
+                "-I",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\lib\\gcc_dll\\mswu",
+                "-L",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\lib\\gcc_dll",
+                "-l",
+                "wxmsw31u_core",
+                "-l",
+                "wxbase31u",
             ],
             "options": {
                 "cwd": "C:/MinGW/mingw32/bin"
