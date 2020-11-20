@@ -1,21 +1,17 @@
-#ifndef __BASE_H 
-// Make sure to only declare these classes once 
-#define __BASE_H 
+#ifndef BASE_H
+#define BASE_H
 
-class MainApp: public wxApp // MainApp is the class for our application 
+template<class T>
+struct Vect
 {
-	// MainApp just acts as a container for the window, or frame in MainFrame
-public:
-	virtual bool OnInit(); 
+	T m_x{0.0f};
+	T m_y{0.0f};
+
+	Vect() : m_x{ 0 }, m_y{ 0 } {}
+	Vect(T x, T y) : m_x{ x }, m_y{ y } {}
+	Vect(const Vect &v) : m_x{v.m_x}, m_y{v.m_y} {}
+
 };
 
-class MainFrame: public wxFrame // MainFrame is the class for our window, 
-{ 
-	// It contains the window and all objects in it 
-public: 
-	MainFrame(const wxString &title, const wxPoint &pos, const wxSize &size); 
-}; 
-
-DECLARE_APP(MainApp)
 
 #endif
