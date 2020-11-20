@@ -15,6 +15,7 @@
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true,
+            "preLaunchTask": "build",
         },
         {
             "name": "gcc.exe build and debug active file",
@@ -22,7 +23,7 @@
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true,

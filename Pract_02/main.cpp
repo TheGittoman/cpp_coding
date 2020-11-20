@@ -5,7 +5,8 @@
 
 int main()
 {
-	int i = 10;
+	int i = 20;
+	std::cout << i << std::endl;
 	system("pause");
 	return 0;
 }
