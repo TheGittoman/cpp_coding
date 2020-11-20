@@ -5,6 +5,7 @@
 
 int main()
 {
+	int i = 10;
 	system("pause");
 	return 0;
 }

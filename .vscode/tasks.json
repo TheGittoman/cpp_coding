@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "shell: cpp.exe build active file",
+            "label": "build",
             "command": "C:/MinGW/bin/g++.exe",
             "args": [
                 "-std=c++2a",
@@ -12,7 +12,7 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-I"
+                "-I",
                 "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\include",
                 "-I",
                 "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\lib\\gcc_dll\\mswu",
