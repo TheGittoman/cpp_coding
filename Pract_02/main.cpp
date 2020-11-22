@@ -5,6 +5,7 @@
 
 int main()
 {
+	std::cout << "uuttajuttja" << std::endl;
 	system("pause");
 	return 0;
 }
