@@ -6,6 +6,7 @@
 int main()
 {
 	std::cout << "uuttajuttja" << std::endl;
+	std::cout << "something else" << std::endl;
 	system("pause");
 	return 0;
 }
