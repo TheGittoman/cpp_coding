@@ -7,7 +7,6 @@
             "command": "C:/MinGW/bin/g++.exe",
             "args": [
                 "-std=c++2a",
-                "-g",
                 "${file}",
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
