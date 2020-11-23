@@ -8,8 +8,6 @@
 
 int main()
 {
-	int x{10};
-	int *p = &x;
 	std::cout << *p << std::endl;
 	std::ofstream file("sample.dat", std::ios::ate);
 
@@ -23,10 +21,11 @@ int main()
 	std::cin >> persons;
 	std::cout << std::endl;
 
+	Company company{};
+
 	for (int i = 0; i < persons; ++i)
 	{
-		Person temp{};
-		std::cout << temp.getInfo() << std::endl;
+		company.addEmployee();
 	}
 
 	file.close();
@@ -38,18 +37,9 @@ int main()
 		std::cerr << "File doesn't work" << std::endl;
 	}
 
-	std::vector<std::string> lineVector;
 
 	while(fileIn)
 	{
-		std::string line;
-		std::getline(fileIn, line);
-		lineVector.push_back(line);
-	}
-
-	for (auto &element : lineVector)
-	{
-		std::cout << element << std::endl;
 	}
 
 	system("pause");

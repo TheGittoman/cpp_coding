@@ -2,6 +2,7 @@
 #define BASE_H
 
 #include <iostream>
+#include <vector>
 
 class Person
 {
@@ -14,7 +15,6 @@ public:
     Person(std::string name = "Jane", std::string surName = "Doe", int age = 0) 
                 : m_name{name}, m_surName{surName}, m_age{age} 
     {
-        std::cout << "New Person Created" << std::endl;
 		std::cout << "Write Full Name and Age(f + s + a): ";
         // *this means that we get current object and use its variables.
         // pointer * is a variable that stores memory addresses when used
@@ -33,7 +33,19 @@ public:
         in >> person.m_age;
         return in;
     }
-    ~Person() {}
+    ~Person() 
+    {
+    }
+};
+
+class Company
+{
+private:
+    std::vector<Person> employees{};
+public:
+    Company() {}
+    std::string getEmployee(const int &index);
+    void addEmployee();
 };
 
 #endif
