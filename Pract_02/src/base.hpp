@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <string>
+
 
 class Person
 {
@@ -12,8 +15,9 @@ private:
     int m_age;
 
 public:
-    Person(std::string name = "Jane", std::string surName = "Doe", int age = 0) 
-                : m_name{name}, m_surName{surName}, m_age{age} 
+    Person(const std::string &name, const std::string &surName, const int &age) 
+                : m_name{name}, m_surName{surName}, m_age{age} {}
+    Person() 
     {
 		std::cout << "Write Full Name and Age(f + s + a): ";
         // *this means that we get current object and use its variables.
@@ -25,6 +29,19 @@ public:
     }
 
     std::string getInfo();
+
+    void setName(const std::string &name)
+    {
+        m_name = name;
+    }
+    void setSurname(const std::string &surName)
+    {
+        m_surName = surName;
+    }
+    void setAge(const int &age)
+    {
+        m_age = age;
+    }
 
     friend std::istream &operator>>(std::istream &in, Person &person)
     {
@@ -45,7 +62,11 @@ private:
 public:
     Company() {}
     std::string getEmployee(const int &index);
+    void addFromFile(const Person &tempPerson);
+    void readEmployees();
     void addEmployee();
+    void writeEmployees();
+    void printEmployees();
 };
 
 #endif
