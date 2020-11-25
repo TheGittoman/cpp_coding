@@ -16,7 +16,11 @@ void tests()
 int main()
 {
 	Company company{};
+	company.addEmployee();
 	company.readEmployees();
+	company.printEmployees();
+	company.writeEmployees();
+	std::cout << "-----------" << std::endl;
 	company.printEmployees();
 	system("pause");
 	return 0;
