@@ -67,6 +67,19 @@ public:
     void addEmployee();
     void writeEmployees();
     void printEmployees();
+    void setAge()
+    {
+        int index;
+        std::cout << "Set index of employee: ";
+        std::cin >> index;
+        --index;
+        std::cout << std::endl;
+        int age;
+        std::cout << "Set age of first employee: ";
+        std::cin >> age;
+        std::cout << std::endl;
+        employees[index].setAge(age);
+    }
 };
 
 #endif
