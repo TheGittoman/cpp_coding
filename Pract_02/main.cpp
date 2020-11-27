@@ -10,12 +10,6 @@
 
 int main()
 {
-	Company company;
-	company.readEmployees();
-	company.printEmployees();
-	company.setAge();
-	company.printEmployees();
-	company.writeEmployees();
 	system("pause");
 	return 0;
 }
