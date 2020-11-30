@@ -6,6 +6,7 @@
             "label": "build",
             "command": "C:/MinGW/bin/g++.exe",
             "args": [
+                "-Wall",
                 "-std=c++2a",
                 "-g",
                 "${file}",

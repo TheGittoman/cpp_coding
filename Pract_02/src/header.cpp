@@ -5,7 +5,7 @@
 
 void merge(std::vector<int> arr, int m, std::vector<int> arr2, int n)
 {
-	if(n + m == std::size(arr) && std::size(arr2) == n)
+	if(n + m == static_cast<int>(std::size(arr)) && static_cast<int>(std::size(arr2)) == n)
 	{
 		for(auto &element : arr2)
 		{
