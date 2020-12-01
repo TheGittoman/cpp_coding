@@ -15,37 +15,35 @@ struct Node
 	Node *next;
 };
 
-Node *head;
 
-void insert(int num)
+void insert(Node **pointerToHead, int num)
 {
 	Node *temp = new Node();
 	temp->data = num;
-	temp->next = head;
-	head = temp;
+	temp->next = *pointerToHead;
+	*pointerToHead = temp;
 }
 
-void print()
+void print(Node *head)
 {
-	Node *temp = head;
-	while(temp != NULL)
+	while(head != NULL)
 	{
-		std::cout << temp->data;
-		temp = temp->next;
+		std::cout << head->data;
+		head = head->next;
 	}
 }
 
 int main()
 {
-	head = NULL;
+	Node *head = NULL;
 	int ii;
 	std::cin >> ii;
 	for(int i = 0; i < ii; ++i)
 	{
 		int num;
 		std::cin >> num;
-		insert(num);
-		print();
+		insert(&head, num);
+		print(head);
 	}
 	system("pause");
 	return 0;
