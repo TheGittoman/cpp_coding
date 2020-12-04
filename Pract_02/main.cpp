@@ -12,7 +12,7 @@
 
 int main()
 {
-	MCS::DynamicMemInC();
+	MCS::PointersAsFuncReturns();
 	std::cout << std::endl;
 	system("pause");
 	return 0;
