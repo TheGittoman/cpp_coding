@@ -1,3 +1,7 @@
 ctrl + j = hyppää terminaaliin
 ctrl + k = hyppää editoriin
 ctrl + e = Hyppää exploreriin
+
+gh = hover over
+gd = go to definition
+gf = go to file?

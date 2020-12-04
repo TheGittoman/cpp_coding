@@ -1,7 +1,9 @@
 #ifndef LEETCODE_HPP
 #define LEETCODE_HPP
 
-#include <vector>
-
+namespace LC
+{
+    void print();
+}
 
 #endif
