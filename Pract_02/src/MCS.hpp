@@ -73,5 +73,46 @@ namespace MCS
 		int *ptr = add(&a, &b);
 		std::cout << *ptr << std::endl;
 	}
+	int addFP(int a, int b)
+	{
+		return a + b;
+	}
+	void FuncPointers()
+	{
+		int c;
+		int (*p)(int, int);					//declaring function pointer to a function with two args
+		p = &addFP;							//allocating the function pointer with function address
+		// p = addFP; does the same thing
+		c = (*p)(10, 20);					//allocating c with the result of a function accessed through funcP
+		// c = p(10, 20); does the same thing
+		std::cout << "function pointer returns: " << c << std::endl;
+	}
+	int compare(int a, int b)
+	{
+		if(a > b) return 1;									// standard check if element b is bigger than element a
+		else return -1;
+	}
+	void BubbleSort(int *A, int n, int (*compare)(int, int)) // takes two int and a function as an argument
+	{
+		int temp;
+		for(int i{0}; i < n; ++i)							// iterates through array once per item
+		{
+			for(int j{0}; j < n; ++j)						// iterates every iteration through every item
+			{
+				if(compare(A[j], A[j+1]) > 0)				// uses the function pointer to return if element is
+				{											// element A[j] is bigger than the next one and returns 1 or -1
+					temp = A[j];							// standard bubblesort stuff which gets executed only if
+					A[j] = A[j+1];							// compare returns bigger than zero
+					A[j+1] = temp;
+				}
+			}
+		}
+	}
+	void FuncPointNCallBacks()
+	{
+		int A[]{3, 1, 2, 3, 4, 5, 6};
+		BubbleSort(A, 6, compare);							// feeding the bubblesort function the compare func as an arg
+		for(int i{0}; i < 6; ++i) std::cout << A[i];		// when using only function name it returns the address(kinda)
+	}
 }
 #endif
