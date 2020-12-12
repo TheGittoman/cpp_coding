@@ -50,7 +50,7 @@ namespace LC
             int rev = 0;
             while (x != 0) {    // loop while x is not 0
                 int pop = x % 10; // pop = modulus 10 of x (jakojäännos 10stä)
-                x /= 10;            // ota yksi numero pois (pop muuttaa viimeisen luvun yhdeksi 1235 = 5)
+                x /= 10;            // ota yksi numero pois koska int ei tue dec (pop muuttaa viimeisen luvun yhdeksi 1235 = 5)
                 if (rev > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0;     // tarkastaa rajat ja palauttaa 0 jos
                 if (rev < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;    // menee yli
                 rev = rev * 10 + pop; // lisää numero takaperin rev muuttujaan ensimmäinen on (esim 123) 0 * 10 + pop(3)
@@ -144,5 +144,19 @@ namespace LC
             }
         }
         return false;
+    }
+    bool validMountainArray(std::vector<int> &arr)
+    {
+        if(arr.size() < 3 || arr[1] < arr[0])  // taking care of the zero input or not possible mountain array input
+            return 0;
+        bool rising{true};
+        for(int i{1}; i < (int)arr.size(); ++i)
+        {
+            if((arr[i] > arr[i - 1] && !rising ) || arr[i] == arr[i - 1])
+                return 0;
+            if(arr[i] < arr[i - 1])
+                rising = false;
+        }
+        return rising != true;
     }
 }
