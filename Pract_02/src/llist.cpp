@@ -17,7 +17,7 @@ namespace LL
             std::cout << head->m_data << " ";
             head = head->next;
         }
-        std::cout << std::endl;
+        std::cout << head->m_data << std::endl;
     }
 
     int input(std::string message)
@@ -70,5 +70,21 @@ namespace LL
         Node *temp{*head};
         *head = (*head)->next;
         delete temp;
+    }
+
+    void reverseList(Node **head)       //MycodeSchool versio en valitettavasti osannut tehdä tätä itse
+    {
+        Node *prev, *next, *current;
+        current = *head;                //current points to the address of head
+        prev = NULL;                    //prev points to NULL because current->next points to this first thing
+        while(current != NULL)          // as long as current is different than zero loop
+        {
+            next = current->next;       //next points to the current next
+            current->next = prev;       //current next points to prev which is actually NULL the first run
+            prev = current;             //make previus point to the current
+            current = next;             //and finally cut the link to the previus with next's address
+        }
+        *head = prev;                   //lastly because we are at the end of the list just make head to be prev
+                                        //which is now the last node (current = NULL and next == NULL)
     }
 }

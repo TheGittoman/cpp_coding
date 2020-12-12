@@ -75,4 +75,74 @@ namespace LC
         if(temp == temp2) return 1;
         else return 0;
     }
+    int removeElement(std::vector<int>& nums, int val) {    // Leetcode example answer
+        int i{0};                                           // declare variable i and set it to 0
+        for(int j{0}; j < (int)nums.size(); ++j)                 // as long as j is less than nums.size( ) add one to j
+        {
+            if(nums[j] != val)                              // if nums[j] is not value set num[i] to be num[j]
+            {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;
+    }
+    int removeDouble(std::vector<int> &nums) // somewhat working thing not as good as leetcodes solution and leetcode doesnt run
+    {
+        int i{0};
+        for(int r{0}; r < (int)nums.size(); ++r)
+        {
+            i = 1;
+            for(int k{0}; k < (int)nums.size(); ++k)
+            {
+                if(nums[k] == nums[k - 1] && k < (int)nums.size() - 1)
+                {
+                    nums[k] = nums[k + 1];
+                    ++i;
+                }
+            }
+        }
+        return (int)nums.size() - i;
+    }
+    int removeDoubleUusi(std::vector<int> &nums) // Leetcode example written purely from memory
+    {
+        if(nums.size() == 0)
+            return 0 ;
+        int i{0};
+        for(int k{1}; k < (int)nums.size(); ++k)
+        {
+            if(nums[k] != nums[i])
+            {
+                ++i;
+                nums[i] = nums[k];
+            }
+        }
+        return i + 1;
+    }
+    bool checkIfExistWorseMemoryUsageFaster(std::vector<int> &arr)
+    {
+        for(int i{0}; i < (int)arr.size(); ++i)
+        {
+            for(int k{0}; k < (int)arr.size(); ++k)
+            {
+                if((arr[i] * 2 == arr[k] || arr[k] * 2 == arr[i]) && k != i)
+                    return true;
+            }
+        }
+        return false;
+    }
+    bool checkIfExistBetterMemoryUsageSlower(std::vector<int> &arr)
+    {
+        for(int i{0}; i < (int)arr.size(); ++i)
+        {
+            for(int k{0}; k < (int)arr.size(); ++k)
+            {
+                if(k == i)                                      // this seems to be better solution compared to using single if
+                    continue;
+                if(arr[i] * 2 == arr[k] || arr[k] * 2 == arr[i])
+                    return true;
+            }
+        }
+        return false;
+    }
 }

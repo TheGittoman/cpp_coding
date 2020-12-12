@@ -36,6 +36,10 @@ namespace LL
     // Deletes first element in the array also checks if list is only 1 element long and just deletes the last item
     //
     void delFirst(Node **head);
+    //
+    //
+    //
+    void reverseList(Node **head);
 }
 
 #endif
