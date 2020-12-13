@@ -159,4 +159,76 @@ namespace LC
         }
         return rising != true;
     }
+    std::vector<int> replaceElements(std::vector<int> &arr)
+    {
+        std::vector<int> arrReplaced;
+        int lenght{(int)arr.size()};
+        if(arr.size() < 2)
+        {
+            arrReplaced.push_back(-1);
+            return arrReplaced;
+        }
+        for(int k{0}; k < lenght; ++k)
+        {
+            int biggestNum{0};
+            for(int i{k + 1}; i < lenght; ++i)
+            {
+                if(arr[i] > biggestNum)
+                    biggestNum = arr[i];
+            }
+            arrReplaced.push_back(biggestNum);
+        }
+        arrReplaced[lenght - 1] = -1;
+        return arrReplaced;
+    }
+    void moveZeroes(std::vector<int> &nums)     //Leetcode array problem
+    {
+        if(nums.size() < 2)
+            return;
+        int slowPointer{0};
+        int temp{0};
+        for(auto &element : nums)
+        {
+            if(nums[slowPointer] == 0 && 
+                element != nums[slowPointer])   // check if slowpointer is zero and different than element
+            {
+                temp = element;                 // temp = current element being looped
+                element = nums[slowPointer];    // current element = element pointed by slowpointer
+                nums[slowPointer] = temp;       // temp = slowpointer element
+                ++slowPointer;                  // add one to slowpointer
+            }
+            if(nums[slowPointer] != 0)          // checks if slowpointer element is different from 0 and adds one to slowpointer
+                ++slowPointer;
+        }
+    }
+    std::vector<int> sortArrayByParity(std::vector<int> &A)
+    {
+        if(A.size() == 0 || A.size() >= 5000)
+            return A;
+        int sP{0};
+        for(auto &element : A)
+        {
+            if(A[sP] % 2 != 0 && element % 2 == 0)
+            {
+                std::swap(A[sP], element);
+                ++sP;
+                continue;
+            }
+            if(A[sP] % 2 == 0)
+                ++sP;
+        }
+        return A;
+    }
+    std::vector<int> sortedSquares(std::vector<int> nums)
+    {
+        if(nums.size() == 0)
+            return nums;
+        auto non_dec{[](int a, int b){return a < b;}};
+        for(auto &element : nums)
+        {
+            element = element * element;
+        }
+        std::sort(nums.begin(), nums.end(), non_dec);
+        return nums;
+    }
 }

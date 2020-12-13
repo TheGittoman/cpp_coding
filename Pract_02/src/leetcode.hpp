@@ -10,7 +10,7 @@
 namespace LC
 {
     void print();
-    
+
     int reverse(int x);
 
     void testRevInt();
@@ -28,6 +28,14 @@ namespace LC
     bool checkIfExistBetterMemoryUsageSlower(std::vector<int> &arr);
 
     bool validMountainArray(std::vector<int> &arr);
+
+    std::vector<int> replaceElements(std::vector<int> &arr);
+
+    void moveZeroes(std::vector<int> &nums);
+
+    std::vector<int> sortArrayByParity(std::vector<int> &A);
+
+    std::vector<int> sortedSquares(std::vector<int> nums);
 }
 
 #endif
