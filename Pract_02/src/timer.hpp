@@ -8,23 +8,19 @@ using namespace std::chrono;
 class Timer
 {
 private:
-    high_resolution_clock::time_point t1;
-    high_resolution_clock::time_point t2;
+    using clock_t = std::chrono::high_resolution_clock;
+    using second_t = std::chrono::duration<double, std::ratio<1> >;
+
+    std::chrono::time_point<clock_t> m_beg;
 public:
-    Timer()
+    Timer() : m_beg(clock_t::now()){}
+    void reset()
     {
-        t1 = high_resolution_clock::now();
+        m_beg = clock_t::now();
     }
-    void clear()
+    double elapsed()
     {
-        t1 = high_resolution_clock::now();
-    }
-    void stop()
-    {
-        t2 = high_resolution_clock::now();
-        duration<long double> time_span = duration_cast<duration<long double>>(t2 - t1);
-        std::cout << "Time took to run the function/program: " << time_span.count() << " seconds.";
-        std::cout << std::endl;
+        return std::chrono::duration_cast<second_t>(clock_t::now() - m_beg).count();
     }
 };
 

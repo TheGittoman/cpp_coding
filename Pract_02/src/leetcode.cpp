@@ -1,4 +1,5 @@
 #include "leetcode.hpp"
+#include "fuf.hpp"
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -230,5 +231,45 @@ namespace LC
         }
         std::sort(nums.begin(), nums.end(), non_dec);
         return nums;
+    }
+    int heightChecker(std::vector<int> &heights)    // leetcode does not accept this answer despite I dont get what is wrong
+    {                                               // with it, it adds one more when the biggest num is at the start
+        int smallest{0};
+        int counter{0};
+        for(int i{0}; i < (int)heights.size(); ++i)
+        {
+            int k{i};
+            smallest = i;
+            for(; k < (int)heights.size(); ++k)
+            {
+                if(heights[smallest] > heights[k])
+                {
+                    if(smallest == 0)               // Doesnt fix the problem
+                        ++counter;
+                    smallest = k;
+                    ++counter;
+                }
+            }
+            std::swap(heights[smallest], heights[i]);
+        }
+        return counter;
+    }
+    int heightCheckerFixed(std::vector<int> &heights)    // "fixed" leetcode submission with vector array
+    {
+        std::vector<int> sorted{};
+        for(auto &element : heights)
+        {
+            sorted.push_back(element);
+        }
+        std::sort(sorted.begin(), sorted.end());
+        int sum{0};
+        for(int i{0}; i < (int)heights.size(); ++i) // auto &element method doesnt for some reason work with this
+        {
+            if(heights[i] != sorted[i])
+            {
+                ++sum;
+            }
+        }
+        return sum;
     }
 }

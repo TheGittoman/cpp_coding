@@ -13,7 +13,7 @@ void FUF::input(T &data, std::string message) // Template function for any type 
 //
 // print any std::vector array
 //
-void FUF::printArray(std::vector<int> array)
+void FUF::printArray(std::vector<int> &array)
 {
     for(auto &element : array)
         std::cout << element << " ";

@@ -36,6 +36,10 @@ namespace LC
     std::vector<int> sortArrayByParity(std::vector<int> &A);
 
     std::vector<int> sortedSquares(std::vector<int> nums);
+
+    int heightChecker(std::vector<int> &heights);    // leetcode does not accept this answer despite I dont get what is wrong
+
+    int heightCheckerFixed(std::vector<int> &heights);    // leetcode does not accept this answer despite I dont get what is wrong
 }
 
 #endif

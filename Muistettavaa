@@ -5,3 +5,6 @@ ctrl + e = Hyppää exploreriin
 gh = hover over
 gd = go to definition
 gf = go to file?
+
+za = toggle fold
+zc = close fold

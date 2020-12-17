@@ -10,7 +10,7 @@ namespace FUF
     template<typename T>
     void input(T &data, std::string message); // Template function for any type of data for std::cin
 
-    void printArray(std::vector<int> array);
+    void printArray(std::vector<int> &array);
 
 }
 
