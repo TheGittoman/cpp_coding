@@ -17,14 +17,14 @@
 int main()
 {
 	Timer time;
-	std::vector<int> nums{3,2,1};
-	std::vector<int> nums2{2,2,3,1};
-	std::vector<int> nums3{1,2,3,4,5};
-	std::vector<int> nums4{2,1,2,1,1,2,2,1};
+	std::vector<int> nums{4, 3, 2, 7, 8, 2, 3, 1};
+	std::vector<int> nums2{2, 2, 3, 1};
+	std::vector<int> nums3{1, 1};
+	std::vector<int> nums4{2, 1, 2, 1, 1, 2, 2, 1};
 
-	for(int i{0}; i < 100000000; ++i)
-		nums.push_back(i);
+	std::vector<int> temp{LC::findDisappearedNumbers(nums3)};
 
+	FUF::printArray(temp);
 	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
 	system("pause");
 	return 0;
