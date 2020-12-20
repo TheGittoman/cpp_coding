@@ -282,33 +282,53 @@ namespace LC
         }
         return sum;
     }
-    std::vector<int> findDisappearedNumbers(std::vector<int> &nums)
+    // std::vector<int> findDisappearedNumbers(std::vector<int> &nums) // works: very slow though
+    // {
+    //     int lenght{(int)nums.size()};
+    //     std::vector<int> disNums{};
+    //     std::sort(nums.begin(), nums.end());
+    //     for (int i{1}; i < nums[0]; ++i)
+    //     {
+    //         disNums.push_back(i);
+    //     }
+    //     for (int i{1}; i < lenght - 1; ++i)
+    //     {
+    //         int distance{nums[i + 1] - nums[i]};
+    //         if (distance > 1)
+    //         {
+    //             for (int k{nums[i] + 1}; k < nums[i + 1]; ++k)
+    //             {
+    //                 disNums.push_back(k);
+    //             }
+    //         }
+    //     }
+    //     if (nums[lenght - 1] != lenght)
+    //     {
+    //         for (int i{nums[lenght - 1]}; i <= lenght; ++i)
+    //         {
+    //             if (i != nums[lenght - 1])
+    //                 disNums.push_back(i);
+    //         }
+    //     }
+    //     return disNums;
+    // }
+    std::vector<int> findDisappearedNumbers(std::vector<int> &nums) // leetcode 96 ms sample
     {
-        std::vector<int> disappearedNums;
-        if (nums.size() < 2)
+        std::vector<int> result;
+        for (int i = 0; i < nums.size(); i++)
         {
-            return disappearedNums;
-        }
-        std::sort(nums.begin(), nums.end());
-        if (nums[nums.size() - 1] > (int)nums.size())
-        {
-            return disappearedNums;
-        }
-        int maxNum{0};
-        for (int i{0}; i < (int)nums.size() - 1; ++i)
-        {
-            if (maxNum < nums[i])
-                maxNum = nums[i];
-            int distance = nums[i + 1] - nums[i];
-            if (distance > 1)
+            if (nums[abs(nums[i]) - 1] > 0)
             {
-                for (int k{nums[i] + 1}; k < nums[i + 1]; ++k)
-                {
-                    disappearedNums.push_back(k);
-                }
+                nums[abs(nums[i]) - 1] *= -1;
             }
         }
-        std::sort(disappearedNums.begin(), disappearedNums.end());
-        return disappearedNums;
-    } // namespace LC
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] > 0)
+            {
+                result.push_back(i + 1);
+            }
+        }
+        return result;
+    }
 } // namespace LC
