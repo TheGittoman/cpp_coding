@@ -294,6 +294,7 @@ namespace LC
     //     for (int i{1}; i < lenght - 1; ++i)
     //     {
     //         int distance{nums[i + 1] - nums[i]};
+
     //         if (distance > 1)
     //         {
     //             for (int k{nums[i] + 1}; k < nums[i + 1]; ++k)
@@ -331,4 +332,5 @@ namespace LC
         }
         return result;
     }
+
 } // namespace LC
