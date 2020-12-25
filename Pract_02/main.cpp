@@ -16,18 +16,15 @@ int main()
 {
 	Timer time;
 	dll::Head head;
-	head.insert(1);
-	head.insert(2);
-	head.insert(3);
-	head.insert(4);
-	head.insert(5);
-	head.print();
-	head.insertTail(0);
-	head.print();
+	for (int k{0}; k < 10; ++k)
+	{
+		for (int i{0}; i < 10000; ++i)
+		{
+			head.insert(i);
+		}
+		head.clean();
+	}
 	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
 	system("pause");
 	return 0;
 }
-
-// arr[i] = *(arr + i)
-// *arr[i] = **(arr + i)

@@ -30,6 +30,11 @@ namespace dll
 
     void Head::print() const
     {
+        if (head == NULL)
+        {
+            std::cerr << "Head Was Empty!" << std::endl;
+            return;
+        }
         Node *temp{head};
         std::cout << temp->m_data << ", ";
         while (temp->next != NULL)
@@ -45,5 +50,23 @@ namespace dll
             temp = temp->prev;
         }
         std::cout << std::endl;
+    }
+    void Head::clean()
+    {
+        if (head == NULL)
+        {
+            std::cerr << "Head Was Empty!" << std::endl;
+            return;
+        }
+        Node *next{NULL};
+        next = head->next;
+        while (next != NULL)
+        {
+            delete head;
+            head = next;
+            next = head->next;
+        }
+        delete head;
+        head = NULL;
     }
 } // namespace dll

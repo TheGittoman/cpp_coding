@@ -23,6 +23,7 @@ namespace dll
         void insert(int val);
         void print() const;
         void insertTail(int val);
+        void clean();
     };
 
 } // namespace dll
