@@ -70,10 +70,13 @@ namespace dll
         head = NULL;
     }
 } // namespace dll
+
 namespace lc
 {
     int MyLinkedList::get(int index)
     {
+        if (head == NULL || index < 0)
+            return -1;
         Node *temp{head};
         for (int currentIndex{0}; currentIndex < index; ++currentIndex)
         {
@@ -167,6 +170,12 @@ namespace lc
         Node *temp{head};
         if (index < 0)
         {
+            return;
+        }
+        if (head->next == NULL && head->prev == NULL)
+        {
+            delete head;
+            head = NULL;
             return;
         }
         if (index == 0)
