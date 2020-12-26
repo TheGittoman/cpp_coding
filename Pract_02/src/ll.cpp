@@ -118,19 +118,20 @@ namespace lc
         newNode->prev = temp;
         temp->next = newNode;
     }
-    void MyLinkedList::addAtIndex(int index, int val) // works, but maybe not as it should
+    void MyLinkedList::addAtIndex(int index, int val)
     {
         if (index < 0)
-        {
-            return;
-        }
-        if (head == NULL)
         {
             return;
         }
         Node *temp{head};
         Node *newNode{new Node()};
         newNode->m_val = val;
+        if (head == NULL)
+        {
+            head = newNode;
+            return;
+        }
         if (index == 0)
         {
             temp->prev = newNode;
@@ -145,14 +146,20 @@ namespace lc
                 delete newNode;
                 return;
             }
+            if (temp->next == NULL && index - currentIndex == 1)
+            {
+                temp->next = newNode;
+                newNode->prev = temp;
+                return;
+            }
             temp = temp->next;
         }
-        if (temp == NULL)
+        if (temp == NULL) // if temp == end of list delete newNode and return
         {
             delete newNode;
             return;
         }
-        if (!temp->next)
+        if (!temp->next) // if temp == last element in the list
         {
             temp->prev->next = newNode;
             newNode->prev = temp->prev;
@@ -172,7 +179,7 @@ namespace lc
         {
             return;
         }
-        if (head->next == NULL && head->prev == NULL)
+        if ((head->next == NULL && head->prev == NULL) && index == 0)
         {
             delete head;
             head = NULL;

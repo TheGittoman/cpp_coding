@@ -17,13 +17,20 @@ int main()
 	Timer time;
 	using namespace lc;
 	MyLinkedList *obj = new MyLinkedList();
-	obj->addAtHead(1);
-	obj->addAtIndex(0, 0);
-	obj->addAtTail(2);
-	obj->deleteAtIndex(0);
-	std::cout << obj->get(1) << std::endl;
-
+	obj->addAtHead(2);
+	obj->deleteAtIndex(1);
 	obj->print();
+	obj->addAtHead(2);
+	obj->addAtHead(7);
+	obj->addAtHead(3);
+	obj->addAtHead(2);
+	obj->addAtHead(5);
+	obj->print();
+	obj->addAtTail(5);
+	obj->print();
+	std::cout << obj->get(5) << std::endl;
+	obj->deleteAtIndex(6);
+	obj->deleteAtIndex(4);
 	obj->printReverse();
 	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
 	system("pause");
