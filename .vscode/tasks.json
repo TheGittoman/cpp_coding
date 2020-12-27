@@ -4,11 +4,11 @@
         {
             "type": "shell",
             "label": "build",
-            "command": "C:/MinGW/bin/g++.exe",
+            "command": "g++.exe",
             "args": [
                 "-Wall",
-                "-std=c++2a",
                 "-g",
+                "-std=c++2a",
                 "${file}",
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
