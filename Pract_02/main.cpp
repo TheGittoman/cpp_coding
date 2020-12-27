@@ -2,6 +2,8 @@
 // every little function that is used all the time currently only printArray functio
 #include "src/timer.hpp"
 // timer reset elapsed(which returs double value)
+#include "src/binarytree.hpp"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -15,6 +17,7 @@
 
 int main()
 {
+	using namespace bt;
 	Timer time;
 	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
 	system("pause");
