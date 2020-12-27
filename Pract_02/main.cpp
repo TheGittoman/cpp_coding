@@ -19,6 +19,13 @@ int main()
 {
 	using namespace bt;
 	Timer time;
+	Tree tree;
+	tree.insert(10, tree.getRoot());
+	tree.insert(20, tree.getRoot());
+	tree.insert(30, tree.getRoot());
+	tree.insert(15, tree.getRoot());
+	tree.insert(0, tree.getRoot());
+	tree.search(tree.getRoot(), 10);
 	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
 	system("pause");
 	return 0;
