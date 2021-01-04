@@ -13,11 +13,15 @@
 #include <chrono>
 #include <memory>
 #include <utility>
+#include <fmt/core.h>
 
 int main()
 {
 	Timer time;
-	std::cout << "Time Taken To Run This Program: " << time.elapsed() << std::endl;
+	// Start timer
+
+	// End timer
+	fmt::print("Program took: {} seconds to run\n", time.elapsed());
 	system("pause");
 	return 0;
 }

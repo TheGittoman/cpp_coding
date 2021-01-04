@@ -13,16 +13,16 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                // fmt includes and links
                 "-I",
-                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\include",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\include",
                 "-I",
-                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\lib\\gcc_dll\\mswu",
-                "-L",
-                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\wxwidgets\\lib\\gcc_dll",
-                "-l",
-                "wxmsw31u_core",
-                "-l",
-                "wxbase31u",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\src",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\Build\\libfmt.a",
+                // found from the build folder of fmt
+                // copied include folder and this file to the root of project
+                // so you should always check for .a files because those are the
+                // library files needed to make the libraries work
             ],
             "options": {
                 "cwd": "C:/MinGW/mingw32/bin"
