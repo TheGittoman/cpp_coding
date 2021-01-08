@@ -34,6 +34,7 @@
                 "-lsfml-network-d",
                 "-lsfml-system-d",
                 "-lsfml-window-d",
+                //Opencl
             ],
             "options": {
                 "cwd": "C:/MinGW/mingw32/bin"
