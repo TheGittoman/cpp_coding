@@ -7,6 +7,7 @@
 #include <fmt/ranges.h>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/window.hpp>
 #include <algorithm>
 #include <chrono>
 #include <climits>
@@ -21,6 +22,7 @@
 int main() {
   Timer time;
   // Start timer
+  sf::Window window(sf::VideoMode(800, 600), "Window");
   // End timer
   fmt::print("Program has taken: {} seconds to run\n", time.elapsed());
   system("pause");
