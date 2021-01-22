@@ -1,5 +1,3 @@
-#include "src/fuf.hpp"
-// Useful functions
 #include "src/timer.hpp"
 // timer reset elapsed(which returs double value)
 
