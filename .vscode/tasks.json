@@ -37,7 +37,7 @@
                 //Opencl
             ],
             "options": {
-                "cwd": "C:/MinGW/mingw32/bin"
+                "cwd": "C:\\MinGW-W64\\mingw64\\bin"
             },
             "problemMatcher": [
                 "$gcc"
