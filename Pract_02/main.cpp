@@ -4,17 +4,6 @@
 #include <fmt/core.h>
 #include <fmt/ranges.h>
 
-#include <algorithm>
-#include <chrono>
-#include <climits>
-#include <fstream>
-#include <iostream>
-#include <memory>
-#include <sstream>
-#include <string>
-#include <utility>
-#include <vector>
-
 int main() {
   Timer time;
   // Start timer

@@ -4,7 +4,8 @@
             "name": "MinGW",
             "includePath": [
                 "${default}",
-                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\include"
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\include",
+                "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\SFML\\include"
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",

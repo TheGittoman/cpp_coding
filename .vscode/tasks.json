@@ -18,14 +18,16 @@
                 "-LC:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\Build",
                 "-I",
                 "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\cpp_libs\\fmt\\include",
-                "-lfmt",
+                "-lfmtd",
                 // found from the build folder of fmt
                 // copied include folder and this file to the root of project
                 // so you should always check for .a files because those are the
                 // library files needed to make the libraries work
 
                 //SFML
-                "-LC:\\Users\\tomva\\Documents\\1links\\Git\\Git\\SFML\\build_debug\\lib",
+
+                "-LC:\\Users\\tomva\\Documents\\1links\\Git\\Git\\SFML\\build-debug\\lib",
+                // "-LC:\\Users\\tomva\\Documents\\1links\\Git\\Git\\SFML\\build_debug\\lib",
                 "-I",
                 "C:\\Users\\tomva\\Documents\\1links\\Git\\Git\\SFML\\include",
                 "-lsfml-audio-d",
