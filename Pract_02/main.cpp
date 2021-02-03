@@ -4,8 +4,6 @@
 #include <fmt/core.h>
 #include <fmt/ranges.h>
 
-#include <vector>
-
 int main() {
   Timer time;
   // Start timer
