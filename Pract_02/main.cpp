@@ -4,6 +4,8 @@
 #include <fmt/core.h>
 #include <fmt/ranges.h>
 
+#include <SFML/Graphics.hpp>
+
 int main() {
   Timer time;
   // Start timer
