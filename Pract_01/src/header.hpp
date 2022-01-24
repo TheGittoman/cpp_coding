@@ -3,6 +3,6 @@
 #include <iostream>
 #include <vector>
 
-
+void defaultFunction();
 
 #endif

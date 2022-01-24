@@ -5,6 +5,9 @@
 
 int main(int argc, char *argv[])
 {
+    std::cout << "Default\n";
+    defaultFunction();
+    
     system("pause");
     return 0;
 }
