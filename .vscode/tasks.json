@@ -13,6 +13,7 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "--static"
             ],
             "options": {
                 "cwd": "C:\\msys64\\mingw64\\bin"

@@ -1,8 +1,8 @@
 #ifndef HEADER_HPP
 #define HEADER_HPP
-#include <iostream>
-#include <vector>
 
-void defaultFunction();
+#include <iostream>
+
+void defaultLoop(std::string caller);
 
 #endif

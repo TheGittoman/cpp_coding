@@ -1,13 +1,9 @@
 #include "src/header.hpp"
-#include <string>
 #include <iostream>
-#include <vector>
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Default\n";
-    defaultFunction();
-    
-    system("pause");
+    std::cout << "This is default main loop!\n";
+    defaultLoop("main");
     return 0;
 }

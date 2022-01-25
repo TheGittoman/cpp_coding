@@ -1,7 +1,6 @@
 #include "header.hpp"
-#include <iostream>
-#include <vector>
 
-void defaultFunction(){
-    std::cout << "Default Function!\n";
+void defaultLoop(std::string caller)
+{
+    std::cout << "This is default loop called by " << caller << "!\n";
 }
