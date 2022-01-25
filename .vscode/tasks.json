@@ -13,8 +13,9 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-LE:\\Git\\cpp_libs\\openGL\\lib-mingw-w64",
                 "-IE:\\Git\\cpp_libs\\openGL\\include",
-                "--static"
+                "-lglfw2",
             ],
             "options": {
                 "cwd": "C:\\msys64\\mingw64\\bin"
