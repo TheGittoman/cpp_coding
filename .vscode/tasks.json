@@ -13,10 +13,7 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-I",
-                "E:\\Git\\cpp_libs\\openGL\\include",
-                "-l",
-                "libglfw3.a",
+                "-IE:\\Git\\cpp_libs\\openGL\\include",
                 "--static"
             ],
             "options": {
