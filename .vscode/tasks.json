@@ -13,6 +13,8 @@
                 "${fileDirname}\\src\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-I",
+                "E:\\Git\\cpp_libs\\openGL\\include",
                 "--static"
             ],
             "options": {

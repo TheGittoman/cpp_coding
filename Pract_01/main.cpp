@@ -1,9 +1,8 @@
 #include "src/header.hpp"
 #include <iostream>
+#include <GLFW/glfw3.h>
 
 int main(int argc, char *argv[])
 {
-    std::cout << "This is default main loop!\n";
-    defaultLoop("main");
     return 0;
 }
