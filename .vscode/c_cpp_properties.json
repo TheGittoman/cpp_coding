@@ -4,7 +4,7 @@
             "name": "MinGW",
             "includePath": [
                 "${default}",
-                "E:\\Git\\cpp_libs\\openGL\\include"
+                "E:\\Git\\cpp_libs\\openGL\\include",
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",
