@@ -12,8 +12,10 @@
                 "-D=GLEW_STATIC",
                 "${file}",
                 "${fileDirname}\\src\\*.cpp",
+                "${fileDirname}\\src\\imgui\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-I${fileDirname}\\src\\imgui\\",
                 "-LE:\\Git\\cpp_libs\\openGL\\lib-mingw-w64",
                 "-IE:\\Git\\cpp_libs\\openGL\\include",
                 "-lglfw3",
@@ -24,7 +26,6 @@
                 "-luser32",
                 "-lgdi32",
                 "-lshell32",
-                "-IE:\\Git\\cpp_libs\\imgui"
             ],
             "options": {
                 "cwd": "C:\\msys64\\mingw64\\bin"

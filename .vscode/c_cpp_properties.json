@@ -6,6 +6,7 @@
                 "${default}",
                 "E:\\Git\\cpp_libs\\openGL\\include",
                 "E:\\Git\\cpp_libs\\glew\\include",
+                "E:\\Git\\cpp_libs\\imgui\\backends",
                 "E:\\Git\\cpp_libs\\imgui"
             ],
             "defines": [],
