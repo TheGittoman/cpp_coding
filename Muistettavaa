@@ -5,3 +5,10 @@ ctrl + e = Hyppää exploreriin
 gh = hover over
 gd = go to definition
 gf = go to file?
+
+gnc = go to next instance and replace with something
+
+mx = mark with x
+'x = go to x
+
+"{char} = tell next command to use {char} register works with yank, put and delete
