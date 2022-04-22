@@ -14,7 +14,7 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": true,
+            "console": "newExternalWindow",
             "preLaunchTask": "build",
         },
         {
@@ -26,7 +26,7 @@
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": true,
+            "console": "newExternalWindow",
             "MIMode": "gdb",
             "miDebuggerPath": "C:/MinGW/bin/gdb.exe",
             "preLaunchTask": "build",
