@@ -6,8 +6,6 @@
             "label": "build",
             "command": "g++.exe",
             "args": [
-                // "-Wall",
-                "-g",
                 "-static-libstdc++",
                 "-static",
                 "-lpthread",
@@ -17,7 +15,7 @@
                 "${fileDirname}\\src\\*.cpp",
                 "${fileDirname}\\src\\imgui\\*.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\release\\${fileBasenameNoExtension}.exe",
                 "-I${fileDirname}\\src\\imgui\\",
                 "-LE:\\Git\\cpp_libs\\openGL\\lib-mingw-w64",
                 "-IE:\\Git\\cpp_libs\\openGL\\include",
@@ -39,6 +37,46 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "debug",
+            "command": "g++.exe",
+            "args": [
+                "-Wall",
+                "-g",
+                "-static-libstdc++",
+                "-static",
+                "-lpthread",
+                "-std=c++2a",
+                "-D=GLEW_STATIC",
+                "${file}",
+                "${fileDirname}\\src\\*.cpp",
+                "${fileDirname}\\src\\imgui\\*.cpp",
+                "-o",
+                "${fileDirname}\\debug\\${fileBasenameNoExtension}_d.exe",
+                "-I${fileDirname}\\src\\imgui\\",
+                "-LE:\\Git\\cpp_libs\\openGL\\lib-mingw-w64",
+                "-IE:\\Git\\cpp_libs\\openGL\\include",
+                "-lglfw3",
+                "-LE:\\Git\\cpp_libs\\glew\\lib",
+                "-IE:\\Git\\cpp_libs\\glew\\include",
+                "-lglew32",
+                "-lopengl32",
+                "-luser32",
+                "-lgdi32",
+                "-lshell32",
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
             }
         }
     ]
