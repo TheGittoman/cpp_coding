@@ -6,8 +6,11 @@
             "label": "build",
             "command": "g++.exe",
             "args": [
-                "-Wall",
+                // "-Wall",
                 "-g",
+                "-static-libstdc++",
+                "-static",
+                "-lpthread",
                 "-std=c++2a",
                 "-D=GLEW_STATIC",
                 "${file}",
