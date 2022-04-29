@@ -9,6 +9,7 @@
                 "-static-libstdc++",
                 "-static",
                 "-lpthread",
+                "-fpermissive",
                 "-std=c++2a",
                 "-D=GLEW_STATIC",
                 "${file}",
