@@ -2,20 +2,11 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 
 #include "src/Renderer.hpp"
-#include "src/vertexBuffer.h"
-#include "src/IndexBuffer.h"
-#include "src/VertexBufferLayout.h"
-#include "src/VertexArray.h"
-#include "src/Shader.h"
-#include "src/Texture.h"
 
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
+// #include "glm/glm.hpp" // OpenGL math library
+// #include "glm/gtc/matrix_transform.hpp"
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw.h"
@@ -80,20 +71,33 @@ int main(void)
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init((char *)glGetString(GL_NUM_SHADING_LANGUAGE_VERSIONS));
 
-    test::TestClearColor test;
+    test::Test *currentTest{nullptr};
+    test::TestMenu *testMenu = new test::TestMenu(currentTest);
+    currentTest = testMenu;
+
+    testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 
     while (!glfwWindowShouldClose(window))
     {
       renderer.Clear();
 
-      test.OnUpdate(0.0f);
-      test.OnRender();
-
       ImGui_ImplOpenGL3_NewFrame();
       ImGui_ImplGlfw_NewFrame();
       ImGui::NewFrame();
 
-      test.OnImGuiRender();
+      if (currentTest)
+      {
+        currentTest->OnUpdate(0.0f);
+        currentTest->OnRender();
+        ImGui::Begin("Test");
+        if (currentTest != testMenu && ImGui::Button("<-"))
+        {
+          delete currentTest;
+          currentTest = testMenu;
+        }
+        currentTest->OnImGuiRender();
+        ImGui::End();
+      }
 
       ImGui::Render();
       ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -109,6 +113,9 @@ int main(void)
       GLCall(glfwSwapBuffers(window););
       GLCall(glfwPollEvents();)
     }
+    delete currentTest;
+    if (currentTest != testMenu)
+      delete testMenu;
   }
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
