@@ -10,7 +10,8 @@
                 "E:\\Git\\cpp_libs\\imgui",
                 "E:\\GIT\\cpp_coding\\Project\\src",
                 "E:\\GIT\\cpp_coding\\Project\\src\\vendor",
-                "E:\\Git\\cpp_coding\\project\\src\\vendor\\glm\\"
+                "E:\\Git\\cpp_coding\\project\\src\\vendor\\glm\\",
+                "E:\\Git\\cpp_coding\\Project\\src\\tests"
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",
