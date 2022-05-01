@@ -17,6 +17,10 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
+#include "imgui/imgui_impl_opengl3.h"
+
 // int main(int argc, char **argv)
 // {
 // }
@@ -83,9 +87,6 @@ int main(void)
 
     glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
     glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
-
-    glm::mat4 mvp = proj * view * model;
 
     // glm::vec4 vp(100.0f, 100.0f, 0.0f, 1.0f); // example vector
     // glm::vec4 result = proj * vp; // converting vector to 0-1 space
@@ -93,7 +94,6 @@ int main(void)
     Shader shader("res/shaders/basic.glsl");
     shader.Bind();
     shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
-    shader.SetUniformMat4f("u_MVP", mvp);
 
     Texture texture("res/textures/logo.png");
     texture.Bind();
@@ -106,25 +106,68 @@ int main(void)
 
     Renderer renderer;
 
-    float r{0.0f};
-    float increment{0.25f};
+    // Setup Dear ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
+    // io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;   // Enable Docking
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+    // io.ConfigViewportsNoAutoMerge = true;
+    // io.ConfigViewportsNoTaskBarIcon = true;
+
+    // Setup Dear ImGui style
+    ImGui::StyleColorsDark();
+    // ImGui::StyleColorsClassic();
+
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init((char *)glGetString(GL_NUM_SHADING_LANGUAGE_VERSIONS));
+
+    bool show_demo_window = true;
+    bool show_another_window = false;
+    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+    glm::vec3 translation{200, 200, 0};
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
       /* Render here */
       renderer.Clear();
 
+      ImGui_ImplOpenGL3_NewFrame();
+      ImGui_ImplGlfw_NewFrame();
+      ImGui::NewFrame();
+
       shader.Bind();
-      shader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
+      shader.SetUniform4f("u_Color", 1.0f, 0.3f, 0.8f, 1.0f);
+
+      glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+      glm::mat4 mvp = proj * view * model;
+
+      shader.SetUniformMat4f("u_MVP", mvp);
 
       renderer.Draw(va, ib, shader);
 
-      if (r > 1.0f)
-        increment = -0.025f;
-      else if (r < 0.0f)
-        increment = 0.025f;
+      {
+        static float f = 0.0f;
+        ImGui::SliderFloat3("Translation", &translation.x, 0.0f, 960.0f);
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+      }
 
-      r += increment;
+      ImGui::Render();
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+      if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+      {
+        GLFWwindow *backup_current_context = glfwGetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        glfwMakeContextCurrent(backup_current_context);
+      }
+
       /* Swap front and back buffers */
       GLCall(glfwSwapBuffers(window););
 
@@ -132,6 +175,9 @@ int main(void)
       GLCall(glfwPollEvents();)
     }
   }
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
+  ImGui::DestroyContext();
   glfwTerminate();
   return 0;
 }
