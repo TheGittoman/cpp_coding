@@ -7,7 +7,9 @@
                 "E:\\Git\\cpp_libs\\openGL\\include",
                 "E:\\Git\\cpp_libs\\glew\\include",
                 "E:\\Git\\cpp_libs\\imgui\\backends",
-                "E:\\Git\\cpp_libs\\imgui"
+                "E:\\Git\\cpp_libs\\imgui",
+                "E:\\GIT\\cpp_coding\\Project\\src\\vendor",
+                "E:\\Git\\cpp_coding\\project\\src\\vendor\\glm\\"
             ],
             "defines": [],
             "windowsSdkVersion": "10.0.18362.0",
